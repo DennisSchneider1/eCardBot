@@ -18,16 +18,18 @@ public class Main extends ListenerAdapter{
 	public boolean repeat = true;
 	public boolean p2acc = false;
 	public MessageChannel playingChannel;
-	public static boolean moreThanOneUsr = true;//set to false if first run
+	public static boolean moreThanOneUsr = false; //set to true if reloading a userlist file is wanted
 	
 	public boolean nextTextP = false;
 	public int payPointsNum = 0;
 	
 	public static BotUsrList savedUsers = new BotUsrList(moreThanOneUsr);
+
+	public static String TOKEN = ""; //put the bot token here
 	
 	public static void main(String[] args) throws LoginException {
 		JDABuilder builder = new JDABuilder(AccountType.BOT);
-		String token = "NDU5NzQyMDU3MjM4NDk1MjMy.Dva64w.KftMgE8FZM-apD8swTZwXx_Ncas";
+		String token = "";//
 		builder.setGame(Game.listening("!game !eHelp"));
 		builder.setToken(token);
 		builder.addEventListener(new Main());
@@ -69,7 +71,7 @@ public class Main extends ListenerAdapter{
 			(upMsg.contains("HALLO") || upMsg.contains("HEY") || upMsg.contains("AHOI") || upMsg.contains("MOIN") ||
 			upMsg.startsWith("EY") || upMsg.contains("WHATS UP") || upMsg.contains("OLLA") || upMsg.contains("MAHLZEIT") ||
 			upMsg.contains("GUTEN") || upMsg.contains("TAG") || upMsg.contains("TACH") || upMsg.contains("BACK") ||
-			upMsg.startsWith("HI") || upMsg.contains("MOIN") || upMsg.contains("KONICHIWA") || upMsg.contains("GRÜTZI") ||
+			upMsg.startsWith("HI") || upMsg.contains("MOIN") || upMsg.contains("KONICHIWA") || upMsg.contains("GRï¿½TZI") ||
 			upMsg.contains("SERVUS") || upMsg.startsWith("JO") || upMsg.contains("GEHT") || upMsg.contains("ABEND"))) {
 			
 			int rdm20 = (int) (Math.random() * 20);
@@ -87,7 +89,7 @@ public class Main extends ListenerAdapter{
 					event.getChannel().sendMessage("salve").queue();
 					break;
 				case 4:
-					event.getChannel().sendMessage("sei gegrüßt").queue();
+					event.getChannel().sendMessage("sei gegrï¿½ï¿½t").queue();
 					break;
 				case 5:
 					event.getChannel().sendMessage("na du").queue();
@@ -105,10 +107,10 @@ public class Main extends ListenerAdapter{
 					event.getChannel().sendMessage("Mahlzeit").queue();
 					break;
 				case 10:
-					event.getChannel().sendMessage("hallöle").queue();
+					event.getChannel().sendMessage("hallï¿½le").queue();
 					break;
 				case 11:
-					event.getChannel().sendMessage("grüezi").queue();
+					event.getChannel().sendMessage("grï¿½ezi").queue();
 					break;
 				default:
 					event.getChannel().sendMessage("Hallo " + event.getAuthor().getName() + "! (:").queue();
@@ -215,11 +217,11 @@ public class Main extends ListenerAdapter{
 			} catch(ArrayIndexOutOfBoundsException e) {
 				e.printStackTrace();
 				System.out.println(strId);
-				event.getChannel().sendMessage("keine gültige ID").queue();
+				event.getChannel().sendMessage("keine gï¿½ltige ID").queue();
 			} catch(StringIndexOutOfBoundsException e) {
 				e.printStackTrace();
 				System.out.println(strId);
-				event.getChannel().sendMessage("keine gültige ID").queue();
+				event.getChannel().sendMessage("keine gï¿½ltige ID").queue();
 			}
 			event.getChannel().sendMessage(strId + " hat " +
 					savedUsers.getUserPoints(conv2UsrArrPos(Long.parseLong(strId))) + " Punkte").queue();
@@ -263,16 +265,16 @@ public class Main extends ListenerAdapter{
 							channel.sendMessage("DAS IST DEIN KOLBEN").queue();
 						});
 					} else {
-						event.getChannel().sendMessage("Benutzerdaten unvollständig\n" +
-								   "(möglicherweise hat er noch nichts geschieben)").queue();
+						event.getChannel().sendMessage("Benutzerdaten unvollstï¿½ndig\n" +
+								   "(mï¿½glicherweise hat er noch nichts geschieben)").queue();
 					}
 				} else {
 					event.getChannel().sendMessage("Benutzer nicht gespeichert \n" +
-							   "(möglicherweise hat er noch nichts geschieben)").queue();
+							   "(mï¿½glicherweise hat er noch nichts geschieben)").queue();
 				}
 			} catch(StringIndexOutOfBoundsException e) {
 				e.printStackTrace();
-				event.getChannel().sendMessage("keine gültige ID").queue();
+				event.getChannel().sendMessage("keine gï¿½ltige ID").queue();
 			}
 			System.out.println(strId);
 		}

@@ -71,46 +71,28 @@ public class Main extends ListenerAdapter{
 			(upMsg.contains("HALLO") || upMsg.contains("HEY") || upMsg.contains("AHOI") || upMsg.contains("MOIN") ||
 			upMsg.startsWith("EY") || upMsg.contains("WHATS UP") || upMsg.contains("OLLA") || upMsg.contains("MAHLZEIT") ||
 			upMsg.contains("GUTEN") || upMsg.contains("TAG") || upMsg.contains("TACH") || upMsg.contains("BACK") ||
-			upMsg.startsWith("HI") || upMsg.contains("MOIN") || upMsg.contains("KONICHIWA") || upMsg.contains("GR�TZI") ||
+			upMsg.startsWith("HI") || upMsg.contains("MOIN") || upMsg.contains("KONICHIWA") ||
 			upMsg.contains("SERVUS") || upMsg.startsWith("JO") || upMsg.contains("GEHT") || upMsg.contains("ABEND"))) {
 			
-			int rdm20 = (int) (Math.random() * 20);
-			switch (rdm20) {
+			int randomResponse = (int) (Math.random() * 10);
+			switch (randomResponse) {
 				case 0:
-					event.getChannel().sendMessage("Hey du Arsch").queue();
-					break;
-				case 1:
 					event.getChannel().sendMessage("Moin Moin").queue();
 					break;
-				case 2:
+				case 1:
 					event.getChannel().sendMessage("Servus!").queue();
 					break;
-				case 3:
+				case 2:
 					event.getChannel().sendMessage("salve").queue();
 					break;
-				case 4:
-					event.getChannel().sendMessage("sei gegr��t").queue();
-					break;
-				case 5:
+				case 3:
 					event.getChannel().sendMessage("na du").queue();
 					break;
-				case 6:
-					event.getChannel().sendMessage("mojen").queue();
-					break;
-				case 7:
-					event.getChannel().sendMessage("tach").queue();
-					break;
-				case 8:
+				case 4:
 					event.getChannel().sendMessage("huhu").queue();
 					break;
-				case 9:
+				case 5:
 					event.getChannel().sendMessage("Mahlzeit").queue();
-					break;
-				case 10:
-					event.getChannel().sendMessage("hall�le").queue();
-					break;
-				case 11:
-					event.getChannel().sendMessage("gr�ezi").queue();
 					break;
 				default:
 					event.getChannel().sendMessage("Hallo " + event.getAuthor().getName() + "! (:").queue();
@@ -217,11 +199,11 @@ public class Main extends ListenerAdapter{
 			} catch(ArrayIndexOutOfBoundsException e) {
 				e.printStackTrace();
 				System.out.println(strId);
-				event.getChannel().sendMessage("keine g�ltige ID").queue();
+				event.getChannel().sendMessage("keine gueltige ID").queue();
 			} catch(StringIndexOutOfBoundsException e) {
 				e.printStackTrace();
 				System.out.println(strId);
-				event.getChannel().sendMessage("keine g�ltige ID").queue();
+				event.getChannel().sendMessage("keine gueltige ID").queue();
 			}
 			event.getChannel().sendMessage(strId + " hat " +
 					savedUsers.getUserPoints(conv2UsrArrPos(Long.parseLong(strId))) + " Punkte").queue();
@@ -265,16 +247,16 @@ public class Main extends ListenerAdapter{
 							channel.sendMessage("DAS IST DEIN KOLBEN").queue();
 						});
 					} else {
-						event.getChannel().sendMessage("Benutzerdaten unvollst�ndig\n" +
-								   "(m�glicherweise hat er noch nichts geschieben)").queue();
+						event.getChannel().sendMessage("Benutzerdaten unvollstaendig\n" +
+								   "(moeglicherweise hat er noch nichts geschieben)").queue();
 					}
 				} else {
 					event.getChannel().sendMessage("Benutzer nicht gespeichert \n" +
-							   "(m�glicherweise hat er noch nichts geschieben)").queue();
+							   "(moeglicherweise hat er noch nichts geschieben)").queue();
 				}
 			} catch(StringIndexOutOfBoundsException e) {
 				e.printStackTrace();
-				event.getChannel().sendMessage("keine g�ltige ID").queue();
+				event.getChannel().sendMessage("keine gueltige ID").queue();
 			}
 			System.out.println(strId);
 		}
